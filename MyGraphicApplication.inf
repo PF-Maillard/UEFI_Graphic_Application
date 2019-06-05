@@ -1,0 +1,25 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = MyGraphicApplication
+  FILE_GUID                      = 052abc25-2c82-4530-a2f6-2fafb4e76135
+  MODULE_TYPE                    = UEFI_APPLICATION
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = UefiMain
+
+  UEFI_HII_RESOURCE_SECTION      = TRUE
+
+[Sources]
+  MyGraphicApplication.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+
+[LibraryClasses]
+  UefiApplicationEntryPoint
+  UefiLib
+  
+
+
+
+
