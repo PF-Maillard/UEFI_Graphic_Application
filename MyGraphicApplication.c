@@ -3,11 +3,9 @@
 #include <Library/UefiApplicationEntryPoint.h>
 #include <Library/UefiBootServicesTableLib.h>
 #include <Protocol/GraphicsOutput.h>
-#include <Protocol/HiiPackageList.h>
 
 EFI_STATUS EFIAPI UefiMain(IN EFI_HANDLE ImageHandle, IN EFI_SYSTEM_TABLE* SystemTable)
 { 
-	//
 	EFI_STATUS Status;
 	EFI_GRAPHICS_OUTPUT_PROTOCOL * GraphicsProtocol = NULL;
 	EFI_GRAPHICS_OUTPUT_BLT_PIXEL White = { 0xFF, 0xFF, 0xFF, 0 };
@@ -18,14 +16,6 @@ EFI_STATUS EFIAPI UefiMain(IN EFI_HANDLE ImageHandle, IN EFI_SYSTEM_TABLE* Syste
 
 	x = 0;
 	y = 0;
-	
-	Status = gBS->OpenProtocol(ImageHandle, &gEfiHiiPackageListProtocolGuid, (VOID **) &PackageList, ImageHandle, NULL, EFI_OPEN_PROTOCOL_GET_PROTOCOL);
-	if (EFI_ERROR(Status))
-	{
-		Print(L"ERROR (main): Impossible de charger le protocole de l'image\n");
-		return Status;
-	}
-
 
 	Status = gBS->LocateProtocol(&gEfiGraphicsOutputProtocolGuid, NULL, (VOID**)&GraphicsProtocol);
 	if (EFI_ERROR(Status))
