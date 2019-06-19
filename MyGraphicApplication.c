@@ -44,7 +44,7 @@ EFI_STATUS EFIAPI UefiMain(IN EFI_HANDLE ImageHandle, IN EFI_SYSTEM_TABLE* Syste
 		}
 
 		//  
-		//  On attends la pression sur une touche
+		//  On attend la pression sur une touche
 		//
 		Status = gBS->WaitForEvent(1, &gST->ConIn->WaitForKey, &EventIndex);
 		if (EFI_ERROR(Status))
@@ -61,7 +61,7 @@ EFI_STATUS EFIAPI UefiMain(IN EFI_HANDLE ImageHandle, IN EFI_SYSTEM_TABLE* Syste
 		}
 
 		//  
-		//  Si la touche pressee correspond à l'une selectionee 
+		//  Si la touche pressee correspond à une selectionee 
 		//
 		switch (Key.UnicodeChar)
 		{
