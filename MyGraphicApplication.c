@@ -15,7 +15,7 @@ EFI_STATUS EFIAPI UefiMain(IN EFI_HANDLE ImageHandle, IN EFI_SYSTEM_TABLE* Syste
 	INTN x = 0, y = 0;
 	
 	//  
-	//  On recupere le protocole graphique 
+	//  graphic protocol recuperation
 	//
 	Status = gBS->LocateProtocol(&gEfiGraphicsOutputProtocolGuid, NULL, (VOID**)&GraphicsProtocol);
 	if (EFI_ERROR(Status))
@@ -27,7 +27,7 @@ EFI_STATUS EFIAPI UefiMain(IN EFI_HANDLE ImageHandle, IN EFI_SYSTEM_TABLE* Syste
 	do 
 	{
 		//  
-		//  On affiche les differentes formes graphiques
+		//  Display of the graphics forms
 		//
 		Status = GraphicsProtocol->Blt(GraphicsProtocol, &Black, EfiBltVideoFill, 0, 0, 0, 0, 800, 600, 0);
 		if (EFI_ERROR(Status))
@@ -44,7 +44,7 @@ EFI_STATUS EFIAPI UefiMain(IN EFI_HANDLE ImageHandle, IN EFI_SYSTEM_TABLE* Syste
 		}
 
 		//  
-		//  On attend la pression sur une touche
+		//  Wait key stroke
 		//
 		Status = gBS->WaitForEvent(1, &gST->ConIn->WaitForKey, &EventIndex);
 		if (EFI_ERROR(Status))
@@ -61,7 +61,7 @@ EFI_STATUS EFIAPI UefiMain(IN EFI_HANDLE ImageHandle, IN EFI_SYSTEM_TABLE* Syste
 		}
 
 		//  
-		//  Si la touche pressee correspond à une selectionee 
+		//  If the press button corresponds to a selection 
 		//
 		switch (Key.UnicodeChar)
 		{
